@@ -9,9 +9,10 @@ def find_common_items(
     """
     Find common items between two arrays.
 
-    Time Complexity:
-    Space Complexity:
-    Optimal time complexity:
+    Time Complexity:O(nm)
+    Space Complexity:O(n+m)
+    Optimal time complexity:O(n+m)
+    which is the same as JavaScript const findCommonItems = (firstArray, secondArray) 
     """
     common_items: List[ItemType] = []
     for i in first_sequence:
