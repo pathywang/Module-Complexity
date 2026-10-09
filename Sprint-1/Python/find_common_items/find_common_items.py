@@ -9,14 +9,27 @@ def find_common_items(
     """
     Find common items between two arrays.
 
-    Time Complexity:O(nm)
-    Space Complexity:O(n+m)
-    Optimal time complexity:O(n+m)
-    which is the same as JavaScript const findCommonItems = (firstArray, secondArray) 
+     Approach:
+    - Convert the second sequence to a set for faster membership checks.
+    - Use a set to track items already added and avoid duplicates.
+    - Preserve the order of items as they appear in the first sequence.
+
+    Time Complexity: O(n + m) on average, because set lookups take O(1)
+    on average and we iterate through both sequences.
+
+    Space Complexity: O(n + m) as an upper bound for the sets and output.
+    More precisely, O(m + k), where k is the number of unique common items.
+
+    Optimal Time Complexity: O(n + m) on average, assuming hashable items
+    and constant-time set operations on average.
     """
+    second_items = set(second_sequence)
     common_items: List[ItemType] = []
-    for i in first_sequence:
-        for j in second_sequence:
-            if i == j and i not in common_items:
-                common_items.append(i)
+    seen_items = set()
+
+    for item in first_sequence:
+        if item in second_items and item not in seen_items:
+            common_items.append(item)
+            seen_items.add(item)
+
     return common_items

@@ -18,12 +18,10 @@
  */
 export function calculateSumAndProduct(numbers) {
   let sum = 0;
-  for (const num of numbers) {
-    sum += num;
-  }
-
   let product = 1;
+
   for (const num of numbers) {
+    sum += num
     product *= num;
   }
 
@@ -33,9 +31,8 @@ export function calculateSumAndProduct(numbers) {
   };
 }
 
-// For two loops, we have visit each element of array  in order to get the result
-// so time complexity is O (n) which means linear. 
-// Regarding space complexity, we only get one result
-// for sum and product no matter how long the array is.so it is O(1)(constant)
-// While time complexity is O(n), optimal time complexity should be O(n) because loop 
-// has to go each single element in array.
+// Time complexity is O(n) because we visit each element once.
+// Space complexity is O(1) because we use a fixed number of variables,
+// regardless of the length of the input array.
+// Optimal time complexity is O(n) because every element must be examined
+// to guarantee the correct sum and product.
