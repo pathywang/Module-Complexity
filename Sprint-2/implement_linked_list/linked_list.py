@@ -1,5 +1,5 @@
 class Node:
-     __slots__ = ("value", "next", "previous")
+    __slots__ = ("value", "next", "previous")
 
     def __init__(self, value):
         self.value = value
