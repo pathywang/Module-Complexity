@@ -1,4 +1,6 @@
 class Node:
+     __slots__ = ("value", "next", "previous")
+
     def __init__(self, value):
         self.value = value
         self.next = None
@@ -28,12 +30,7 @@ class LinkedList:
         if node is None:
             return None
 
-        if self.head == self.tail:
-            self.head = None
-            self.tail = None
-        else:
-            self.tail = node.previous
-            self.tail.next = None
+        self.remove(node)
 
         return node.value
 
@@ -53,3 +50,6 @@ class LinkedList:
         else:
             node.previous.next = node.next
             node.next.previous = node.previous
+
+        node.next = None
+        node.previous = None
